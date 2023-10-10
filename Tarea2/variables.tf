@@ -30,11 +30,11 @@ variable "AMI_Windows" {
 
 # Variable contenedora de las llaves cli de AWS
 variable "access_key_aws" {
-  default = "AKIA5PZ2Z27MK63U2MWD"
+  default = ""
 }
 
 variable "secret_key_aws" {
-  default = "ubg4C8HsTxnMSS4Rz7MFjZcNyZxrS4RXXRfICwHI"
+  default = ""
 }
 
 
