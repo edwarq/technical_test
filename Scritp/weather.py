@@ -27,7 +27,7 @@ def clima():
 
     city = input("Ingrese su ciudad:")
 
-    url = 'http://api.openweathermap.org/data/2.5/weather?q={}&appid=9cc34e6dd250162daa6f53bb33451f3c&units=metric'.format(city)
+    url = 'http://api.openweathermap.org/data/2.5/weather?q={}&appid=aqui_token&units=metric'.format(city)
 
     res = requests.get(url)
     data = res.json()
