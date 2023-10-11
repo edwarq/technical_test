@@ -1,0 +1,36 @@
+---
+- name: Instalar y configurar Apache
+  hosts: linux
+  become: yes
+  
+  tasks:
+    - name: Instalar Apache en sistemas basados en Debian/Ubuntu
+      apt:
+        name: apache2
+        state: present
+      when: ansible_os_family == 'Debian'
+
+    - name: Instalar Apache en sistemas basados en Red Hat
+      yum:
+        name: httpd
+        state: present
+      when: ansible_os_family == 'RedHat'
+
+    - name: Iniciar servicio Apache
+      service:
+        name: apache2
+        state: started
+        enabled: yes
+      when: ansible_os_family == 'Debian'
+
+    - name: Iniciar servicio Apache
+      service:
+        name: httpd
+        state: started
+        enabled: yes
+      when: ansible_os_family == 'RedHat'
+
+    - name: Copiar archivo HTML
+      copy:
+        src: /home/ec2-user/linux_ansible/index.html
+        dest: /var/www/html/index.html
